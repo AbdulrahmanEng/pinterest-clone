@@ -9,20 +9,32 @@ const dotenv = require('dotenv');
 const passport = require('passport');
 const Auth0Strategy = require('passport-auth0');
 const flash = require('connect-flash');
+const mongoose = require('mongoose');
 
 dotenv.load();
+
+// Connect to database.
+mongoose.connect(process.env.MONGO_URL);
+
+// Set debugging to true for Mongoose.
+mongoose.set('debug', true);
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log('Successfully connected to database.');
+});
 
 const routes = require('./routes/index');
 const user = require('./routes/user');
 
 // This will configure Passport to use Auth0
-const strategy = new Auth0Strategy(
-  {
+const strategy = new Auth0Strategy({
     domain: process.env.AUTH0_DOMAIN,
     clientID: process.env.AUTH0_CLIENT_ID,
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
-    callbackURL:
-      process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
+    callbackURL: process.env.AUTH0_CALLBACK_URL || 'http://localhost:3000/callback'
   },
   function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
@@ -70,13 +82,13 @@ app.use(flash());
 
 // Handle auth failure error messages
 app.use(function(req, res, next) {
- if (req && req.query && req.query.error) {
-   req.flash("error", req.query.error);
- }
- if (req && req.query && req.query.error_description) {
-   req.flash("error_description", req.query.error_description);
- }
- next();
+  if (req && req.query && req.query.error) {
+    req.flash("error", req.query.error);
+  }
+  if (req && req.query && req.query.error_description) {
+    req.flash("error_description", req.query.error_description);
+  }
+  next();
 });
 
 // Check logged in
