@@ -2,3 +2,70 @@
     color: #337ab7;
     text-decoration: none;
 }
+
+.w3-input {
+    margin-bottom: 1rem;
+}
+
+form {
+    text-align: left;
+}
+
+.pins {
+    margin-top: 1rem;
+}
+
+.pin {
+    display: inline-block;
+    cursor: pointer;
+    margin: 1rem;
+    width: 200px;
+    border-radius: 10px;
+    padding-bottom: 1rem;
+}
+
+.pin:hover {
+    background-color: #EEEEEE;
+}
+
+.pin__thumbnail {
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.pin__description {
+    color: #424242 !important;
+    margin: 1rem;
+}
+
+.pin__owner {
+    color: #bdbdbd !important;
+    margin: 1rem;
+}
+
+.pin__update {
+    margin: 1rem 0;
+}
+
+/* Detail Page Styling */
+
+.detail__info {
+    margin: 1rem 0;
+}
+
+.detail__visit {
+    background-color: lightgrey;
+    padding: .5rem 5rem;
+    color: #424242 !important;
+}
+
+.detail__delete {
+    margin: 1rem;
+}
+
+.detail__pin .pin__thumbnail {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}

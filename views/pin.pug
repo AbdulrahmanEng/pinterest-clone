@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  br
+  .w3-container.detail
+    .w3-threequarter.w3-container
+      .detail__pin
+        a(href=pin.website)
+          img(src=pin.imageUrl class="pin__thumbnail" onerror="this.onerror=null;this.src='https://material.io/design/assets/10hopQ2-3NS3F2-IQEXiqJBVB7CVFEjaN/intro-illo-guidance.png';")
+    .w3-quarter.w3-container
+      .detail__info
+        div
+          a(href=pin.website class="detail__visit") Visit
+        div(class="pin__description")
+          p #{pin.description}
+        div
+          a(href="/user/"+pin.createdBy class="pin__owner") by #{pin.createdBy}
+        if user===pin.createdBy
+          div(class="pin__update")
+            a(href="/pins/"+pin._id+"/update" class="w3-button w3-blue") Update Pin
+            a(href="/pins/"+pin._id+"/delete" class="w3-button w3-ripple w3-red detail__delete") Delete Pin

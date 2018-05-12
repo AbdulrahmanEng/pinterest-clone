@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  br
+  .w3-container
+    h1 Update Pin
+    .w3-card-4.w3-center(style="padding: 15px;")
+      form(action="/pins/update" method="POST" class="w3-container")
+        input(id="id" name="id" type="hidden" value=pin._id)
+        label Image
+        input(type="text" class="w3-input" name="url" placeholder="Link to image" value=pin.imageUrl required)
+        label Website
+        input(type="text" class="w3-input" name="website" placeholder="Update the URL that this Pin links to" value=pin.website required)
+        label Description
+        textarea(type="text" class="w3-input" name="description" placeholder="Update the description" maxlength="200" required)
+          | #{pin.description}
+        button(type="submit" class="w3-btn w3-ripple w3-red") Update Pin

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  br
+  .w3-container
+    h1 #{user.username}'s Pins
+    if sessionUser === user.username
+      .w3-card-4.w3-center(style="padding: 15px;")
+        h2 Create Pin
+        form(action="/pins/new" method="POST" class="w3-container")
+          label Image
+          input(type="text" class="w3-input" name="url" placeholder="Link to image" required)
+          label Website
+          input(type="text" class="w3-input" name="website" placeholder="Add the URL that this Pin links to" required)
+          label Description
+          textarea(type="text" class="w3-input" name="description" placeholder="Describe your Pin" maxlength="200" required)
+          button(type="submit" class="w3-btn w3-ripple w3-red") Upload Pin
+    .w3-container.pins
+      each pin in user.pins
+        .pin
+          a(href="/pin/"+pin._id)
+            img(src=pin.imageUrl class="pin__thumbnail" onerror="this.onerror=null;this.src='https://material.io/design/assets/10hopQ2-3NS3F2-IQEXiqJBVB7CVFEjaN/intro-illo-guidance.png';")
+            span(class="pin__description") #{pin.description}

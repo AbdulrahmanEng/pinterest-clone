@@ -2,7 +2,18 @@ extends layout
 
 block content
   .w3-container
-    if loggedIn
-      h4 You are logged in!
-    else
-      h4 You are not logged in! Please #[a(href="/login") Log In] to continue.
+  // @todo Display all of the pins.
+  .w3-container.pins
+    .grid
+      each pin in pins
+        .pin.grid-item
+          a(href="/pin/"+pin._id)
+            img(src=pin.imageUrl class="pin__thumbnail" id="img")
+            p(class="pin__description") #{pin.description}
+            a(href="/user/"+pin.createdBy class="pin__owner") by #{pin.createdBy} 
+  script.
+    var elem = document.querySelector('.grid');
+    var msnry = new Masonry( elem, {
+      itemSelector: '.grid-item',
+      columnWidth: 200
+    });
