@@ -23,14 +23,6 @@ npm start
 
 The app will be served at `localhost:3000`.
 
-## Running the Sample With Docker
-
-In order to run the example with docker you need to have `docker` installed.
-
-You also need to set the environment variables as explained [previously](#running-the-sample).
-
-Execute in command line `sh exec.sh` to run the Docker in Linux, or `.\exec.ps1` to run the Docker in Windows.
-
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
