@@ -1,3 +1,12 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Helvetica Neue", "Helvetica", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", arial, sans-serif;
+    color: #211922;
+    font-size: 12px;
+}
+
 .w3-container a {
     color: #337ab7;
     text-decoration: none;
@@ -12,16 +21,35 @@ form {
 }
 
 .pins {
-    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ---- grid-item ---- */
+
+.grid-item {
+    width: 160px;
+    height: auto;
+    float: left;
+    padding: 1em;
+    border-radius: 5px;
 }
 
 .pin {
-    display: inline-block;
     cursor: pointer;
-    margin: 1rem;
-    width: 200px;
-    border-radius: 10px;
-    padding-bottom: 1rem;
 }
 
 .pin:hover {
@@ -29,7 +57,7 @@ form {
 }
 
 .pin__thumbnail {
-    width: 200px;
+    width: 100%;
     border-radius: 10px;
     cursor: pointer;
 }
