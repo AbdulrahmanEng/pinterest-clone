@@ -11,10 +11,3 @@ block content
             img(src=pin.imageUrl class="pin__thumbnail" id="img")
             p(class="pin__description") #{pin.description}
             a(href="/user/"+pin.createdBy class="pin__owner") by #{pin.createdBy} 
-  script.
-    var elem = document.querySelector('.grid');
-    var msnry = new Masonry( elem, {
-      itemSelector: '.grid-item',
-      columnWidth: 100,
-      fitWidth: true
-    });
