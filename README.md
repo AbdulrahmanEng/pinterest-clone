@@ -15,6 +15,11 @@ Rename `.env.example` to `.env` and replace the values for `AUTH0_CLIENT_ID`, `A
 cp .env.example .env
 ```
 
+Add the MongoDB URI to .env
+
+```bash
+echo 'MONGO_URI=<URI>' >> .env
+
 Run the app.
 
 ```bash
