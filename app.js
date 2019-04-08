@@ -14,7 +14,7 @@ const mongoose = require('mongoose');
 dotenv.load();
 
 // Connect to database.
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect(process.env.MONGO_URI);
 
 // Set debugging to true for Mongoose.
 mongoose.set('debug', true);
