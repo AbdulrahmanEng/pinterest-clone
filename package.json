@@ -9,6 +9,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "asn1": "^0.2.4",
     "body-parser": "^1.18.3",
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
